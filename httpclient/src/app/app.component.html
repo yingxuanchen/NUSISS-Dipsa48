@@ -5,12 +5,16 @@
   <span> &nbsp;</span>
 </mat-toolbar>
 
+<select (change)= onChange($event)>
+  <option *ngFor="let country of countries">{{country}}</option>
+</select>
+
 <mat-card class="example-card">
   
-  <img mat-card-image src="https://www.nea.gov.sg/assets/images/map/base-853.png" alt="Photo of Weather">
+  <img mat-card-image [src]="imageUrl" alt="Photo of Weather">
   <mat-card-content>
     <p>
-        Country : Singapore
+        Country : {{selectedCountry}}
     </p>
     <p>
       Temperature : {{model.temp - 273.15 | number}}
